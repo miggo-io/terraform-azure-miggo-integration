@@ -1,23 +1,24 @@
-This Terraform module creates a service principal and assigns Reader role across all accessible subscriptions.
+# Miggo Azure Integration Module
 
-## Prerequisites
-- Azure CLI installed
-- Terraform installed
-- Appropriate Azure permissions
+Terraform module to integrate Miggo with Azure for enhanced cloud environment visibility. Enables detection of internet-facing services, anomalies, gaps, and drifts.
 
 ## Usage
-1. Clone repository
-2. Update provider files with your client_id
-3. Update terraform.tfvars if needed
-4. Run:
-   ```bash
-   terraform init
-   terraform plan
-   terraform apply
-   ```
+```hcl
+module "miggo_azure_integration" {
+  source = "github.com/miggo-io/terraform-azure-miggo-integration"
+}
+```
 
-## Variables
-- client_id: The Application ID to install (default provided)
+## Requirements
+- Terraform >= 0.13
+- Azure Provider >= 3.0
+- Azure AD Provider >= 2.0
+- Active Miggo subscription
 
 ## Outputs
-- tenant_id: The tenant ID where resources are deployed
+| Name | Description |
+|------|-------------|
+| tenant_id | Azure AD Tenant ID |
+| client_id | Application Client ID |
+| client_secret | Application Secret |
+| assigned_subscriptions | List of subscriptions with Reader access |
