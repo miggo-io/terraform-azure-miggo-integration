@@ -12,8 +12,6 @@ terraform {
   required_version = ">= 0.13.0"
 }
 
-provider "azuread" {}
-
 provider "azurerm" {
   features {}
 }
